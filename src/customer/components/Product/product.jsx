@@ -20,8 +20,9 @@ import {
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { findProducts } from "../../../State/Product/Action";
+import Pagination from "@mui/material/Pagination";
 
 const sortOptions = [
   { name: "Price: Low to High", href: "#", current: false },
@@ -37,7 +38,7 @@ export default function Product() {
   const location = useLocation();
   const navigate = useNavigate();
   const param=useParams();
-
+  const {products} = useSelector(store=>store)
 
   const decodedQueryString = decodeURIComponent(location.search);
   const searchParamms = new URLSearchParams(decodedQueryString);
@@ -49,6 +50,15 @@ export default function Product() {
   const pageNumber = searchParamms.get("page") || 1;
   const stock = searchParamms.get("stock");
   const dispatch = useDispatch();
+
+  const handlePaginationChange = (event,value) => {
+    const searchParamms = new URLSearchParams(location.search)
+    searchParamms.set("page", value);
+    const query=searchParamms.toString();
+    navigate({search:`?${query}`})
+  }
+
+
 
   const handleFilter = (value, sectionId) => {
     const searchParamms = new URLSearchParams(location.search);
@@ -76,7 +86,7 @@ export default function Product() {
   };
   
   useEffect(() => {
-    const [minPrice, maxPrice] = priceValue === null ? [0, 0] : priceValue.split("-").map(Number);
+    const [minPrice, maxPrice] = priceValue === null ? [0,10000] : priceValue.split("-").map(Number);
     const data = {
       category: param.lavelThree,
       colors: colorValue || [],
@@ -554,11 +564,31 @@ export default function Product() {
               {/* Product grid */}
               <div className="lg:col-span-4 w-full">
                 <div className="flex flex-wrap justify-center bg-white py-5">
-                  {mens_kurta.map((item) => (
-                    <ProductCard product={item} />
-                  ))}
+                  {products.products &&
+                    products.products?.content?.map((item) => (
+                      <ProductCard product={item} />
+                    ))}
                 </div>
               </div>
+            </div>
+          </section>
+
+          <section className="w-full px=[3.6rem]">
+            <div className="px-4 py-5 flex justify-center">
+              {/* <Pagination count={10} color="secondary" /> */}
+              <Pagination
+                onChange={handlePaginationChange}
+                count={products.products?.totalPages}
+                sx={{
+                  "& .MuiPaginationItem-root": {
+                    color: "#0d9488", // Change this color to your desired color
+                  },
+                  "& .Mui-selected": {
+                    backgroundColor: "#0d9488", // Change this background color for the selected item
+                    color: "white", // Change this text color for the selected item
+                  },
+                }}
+              />
             </div>
           </section>
         </main>

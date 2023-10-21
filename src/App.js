@@ -16,7 +16,7 @@ import CustomerRoutes from "./customer/Routers/CustomerRoutes";
 
 function App() {
   return (
-    <div className="a">
+    <div >
       <Routes>
         <Route path="/*" element={<CustomerRoutes />}></Route>
       </Routes>

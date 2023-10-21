@@ -1,36 +1,45 @@
 import { Box, Button, Grid, TextField } from "@mui/material";
 import React from "react";
 import AddressCard from "../AddressCard/AddressCard";
+import { useDispatch } from "react-redux";
+import { createOrder } from "../../../State/Order/Action";
+import { useNavigate } from "react-router-dom";
 
 const DeliveryAddressForm = () => {
-
-  const handleSubmit = (e) => { 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const data = new FormData(e.currentTarget);
     const address = {
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-      streetAddress: data.get('address'),
-      city: data.get('city'),
-      state: data.get('state'),
-      zipCode: data.get('zip'),
-      mobileNumber: data.get('phoneNumber'),
-    }
-    console.log("address",address);
-  }
+      firstName: data.get("firstName"),
+      lastName: data.get("lastName"),
+      streetAddress: data.get("address"),
+      city: data.get("city"),
+      state: data.get("state"),
+      zipCode: data.get("zip"),
+      mobile: data.get("phoneNumber"),
+    };
+
+    const orderData = { address, navigate };
+    console.log("Delivery address", orderData);
+    dispatch(createOrder(orderData));
+    console.log("FormData address", address);
+  };
+
   return (
     <div>
       <Grid container spacing={4}>
         <Grid
           xs={12}
           lg={5}
-          className="border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll"
+          className="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll"
         >
           <div className="p-5 py-7 border-b cursor-pointer">
             <AddressCard />
             <Button
-              sx={{py:1.5, mt: 2, bgcolor: "RGB(145 85 253)" ,w:"full"}}
+              sx={{ py: 1.5, mt: 2, bgcolor: "RGB(145 85 253)", w: "full" }}
               size="large"
               variant="contained"
             >
@@ -70,7 +79,7 @@ const DeliveryAddressForm = () => {
                     name="address"
                     label="Address"
                     fullWidth
-                    autoComplete="given-name"
+                    autoComplete="given_address"
                     multiline
                     rows={4}
                   />

@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="mt-auto">
       <Grid
         className="bg-black text-white text-center mt-10"
         container
@@ -15,31 +15,31 @@ const Footer = () => {
             Company
           </Typography>
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               About
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Blog
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Press
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Jobs
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Partners
             </Button>
           </div>
@@ -51,31 +51,31 @@ const Footer = () => {
             Solutions{""}
           </Typography>
           <div>
-            <Button className="pb-5" variant="h6" >
+            <Button className="pb-5" variant="h6">
               Marketing
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5" variant="h6" >
+            <Button className="pb-5" variant="h6">
               Analytics
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5" variant="h6" >
+            <Button className="pb-5" variant="h6">
               Commerce
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5" variant="h6" >
+            <Button className="pb-5" variant="h6">
               Insights
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5" variant="h6" >
+            <Button className="pb-5" variant="h6">
               Support
             </Button>
           </div>
@@ -86,19 +86,19 @@ const Footer = () => {
             Documentation
           </Typography>
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Guides
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Api Status
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Press
             </Button>
           </div>
@@ -108,19 +108,19 @@ const Footer = () => {
             Legal
           </Typography>
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Claim
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Privacy
             </Button>
           </div>
 
           <div>
-            <Button className="pb-5 mb-4" variant="h6" >
+            <Button className="pb-5 mb-4" variant="h6">
               Terms
             </Button>
           </div>
