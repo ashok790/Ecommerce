@@ -13,12 +13,16 @@ import ProductDetails from "./customer/components/ProductDetails/ProductDetails"
 // import Carousel from './customer/components/HomeCarosel/MainCarosel';
 import HomePage from "./customer/pages/HomePage/HomePage";
 import CustomerRoutes from "./customer/Routers/CustomerRoutes";
+import AdminRouters from "./customer/Routers/AdminRouters";
+
+
 
 function App() {
   return (
     <div >
       <Routes>
         <Route path="/*" element={<CustomerRoutes />}></Route>
+        <Route path="/admin/*" element={<AdminRouters/>}></Route>
       </Routes>
 
      
